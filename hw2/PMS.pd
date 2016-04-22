@@ -1,0 +1,45 @@
+#N canvas 319 23 834 645 10;
+#X obj 15 -63 dsp_toggle;
+#X obj 234 471 dac~;
+#X obj 157 151 linMap;
+#X floatatom 173 106 5 0 0 0 - - -;
+#X floatatom 211 106 5 0 0 0 - - -;
+#X obj 157 340 osc~;
+#X obj 155 -2 SDR;
+#X obj 337 -4 SDRGrad;
+#X msg 256 -56 bang;
+#X obj 300 317 osc~;
+#X obj 322 350 *~;
+#X obj 236 250 * 1.5;
+#X obj 337 315 env;
+#X obj 337 120 ThresholdedTrigger;
+#X text 448 -38 This Patch is used to navigate through the dataset
+The two players on the left here are used to play the data \, and it's
+gradient both of which were obtained using a python script (as described
+in hw2.ipynb). This is played back at a rate that is determined by
+the sliders.;
+#X text 16 -22 Turn on Audio;
+#X text 171 85 Low f;
+#X text 211 86 High f;
+#X text 470 139 A Threshold function that sends out triggers whenever
+the input signal is higher than the threshold set within it's interface.
+;
+#X text 365 285 A simpls AD Envelope going over a sine osc.;
+#X text 209 274 Perfect fifth;
+#X text -2 170 A linear mapping function that maps input signal 9-1
+between low and high f;
+#X text 167 -58 Play both--->;
+#X connect 2 0 5 0;
+#X connect 2 0 11 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 2;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 13 0;
+#X connect 8 0 6 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 1 1;
+#X connect 11 0 9 0;
+#X connect 12 0 10 1;
+#X connect 13 0 12 0;
