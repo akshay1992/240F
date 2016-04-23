@@ -1,34 +1,39 @@
 #N canvas 319 23 834 645 10;
-#X obj 15 -63 dsp_toggle;
-#X obj 234 471 dac~;
-#X obj 157 151 linMap;
-#X floatatom 173 106 5 0 0 0 - - -;
-#X floatatom 211 106 5 0 0 0 - - -;
-#X obj 157 340 osc~;
-#X obj 155 -2 SDR;
-#X obj 337 -4 SDRGrad;
-#X msg 256 -56 bang;
-#X obj 300 317 osc~;
-#X obj 322 350 *~;
-#X obj 236 250 * 1.5;
-#X obj 337 315 env;
-#X obj 337 120 ThresholdedTrigger;
-#X text 448 -38 This Patch is used to navigate through the dataset
-The two players on the left here are used to play the data \, and it's
+#X obj -15 -43 dsp_toggle;
+#X obj 244 521 dac~;
+#X obj 167 271 linMap;
+#X floatatom 183 216 5 0 0 0 - - -;
+#X floatatom 221 216 5 0 0 0 - - -;
+#X obj 167 390 osc~;
+#X obj 165 48 SDR;
+#X obj 347 46 SDRGrad;
+#X msg 266 -6 bang;
+#X obj 310 367 osc~;
+#X obj 332 400 *~;
+#X obj 246 300 * 1.5;
+#X obj 347 365 env;
+#X obj 347 170 ThresholdedTrigger;
+#X text 458 12 This Patch is used to navigate through the dataset The
+two players on the left here are used to play the data \, and it's
 gradient both of which were obtained using a python script (as described
 in hw2.ipynb). This is played back at a rate that is determined by
 the sliders.;
-#X text 16 -22 Turn on Audio;
-#X text 171 85 Low f;
-#X text 211 86 High f;
-#X text 470 139 A Threshold function that sends out triggers whenever
+#X text -14 -2 Turn on Audio;
+#X text 181 235 Low f;
+#X text 221 236 High f;
+#X text 480 189 A Threshold function that sends out triggers whenever
 the input signal is higher than the threshold set within it's interface.
 ;
-#X text 365 285 A simpls AD Envelope going over a sine osc.;
-#X text 209 274 Perfect fifth;
-#X text -2 170 A linear mapping function that maps input signal 9-1
-between low and high f;
-#X text 167 -58 Play both--->;
+#X text 219 324 Perfect fifth;
+#X text 177 -8 Play both--->;
+#X msg 183 191 220;
+#X obj 47 110 loadbang;
+#X text -22 259 A linear mapping function that maps input signal ranging
+0-1 between low and high f;
+#X msg 452 144 0.22;
+#X text 46 90 Starting Values;
+#X text 375 365 A simple AD Envelope going over a sine osc.;
+#X msg 221 190 880;
 #X connect 2 0 5 0;
 #X connect 2 0 11 0;
 #X connect 3 0 2 1;
@@ -43,3 +48,9 @@ between low and high f;
 #X connect 11 0 9 0;
 #X connect 12 0 10 1;
 #X connect 13 0 12 0;
+#X connect 21 0 3 0;
+#X connect 22 0 27 0;
+#X connect 22 0 21 0;
+#X connect 22 0 24 0;
+#X connect 24 0 13 1;
+#X connect 27 0 4 0;
